@@ -88,3 +88,6 @@ java -jar target/knights-move-1.0.0-SNAPSHOT.jar e2 f4
 
 ### Запуск приложения, собранного вручную
 Запуск производится также, как это делалось при выполнении предыдущих заданий.
+
+## Создание pull request (опционально)
+После того, как вы завершите выполнение задания, код будет собираться и тесты успешно выполняться, следует залить его в ваш fork и создать [pull request в исходный репозиторий](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). Для тех, кто это сделает, обратная связь будет предоставляться в виде замечаний к pull request'у, что намного нагляднее обычного списка замечаний. 
