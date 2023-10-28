@@ -2,6 +2,7 @@ package croc.education.ws2023spb.knightsmove;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import croc.education.ws2023spb.knightsmove.exceptions.IllegalPositionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -30,11 +31,11 @@ public class TestKnightsMoveChecker {
      * <p/>
      * Проверяет один правильный ход.
      * 
-     * @throws IllegalMoveException
+     * @throws IllegalPositionException
      *             при ошибке теста
      */
     @Test
-    public void checkOneLegalMove() throws IllegalMoveException {
+    public void checkOneLegalMove() throws IllegalPositionException {
         // given:
 
         // when:
@@ -50,11 +51,11 @@ public class TestKnightsMoveChecker {
      * <p/>
      * Проверяет обход доски конём по маршруту Яниша.
      * 
-     * @throws IllegalMoveException
+     * @throws IllegalPositionException
      *             при ошибке теста
      */
     @Test
-    public void checkJaenischSequence() throws IllegalMoveException {
+    public void checkJaenischSequence() throws IllegalPositionException {
         // given:
 
         // when:
@@ -131,7 +132,7 @@ public class TestKnightsMoveChecker {
      * <p/>
      * Проверяет неправильный ход.
      * 
-     * @throws IllegalMoveException
+     * @throws IllegalPositionException
      *             при ошибке теста
      */
     @Test
@@ -140,10 +141,10 @@ public class TestKnightsMoveChecker {
 
         // when:
         // then:
-        assertThatThrownBy(() -> checker.check(new String[] { "b2", "b3" })).isInstanceOf(IllegalMoveException.class)
+        assertThatThrownBy(() -> checker.check(new String[] { "b2", "b3" })).isInstanceOf(IllegalPositionException.class)
                 .hasMessageContaining("b2 -> b3");
         assertThatThrownBy(() -> checker.check(new String[] { "b2", "c4", "e4", "g6" }))
-                .isInstanceOf(IllegalMoveException.class)
+                .isInstanceOf(IllegalPositionException.class)
                 .hasMessageContaining("c4 -> e4");
     }
 }

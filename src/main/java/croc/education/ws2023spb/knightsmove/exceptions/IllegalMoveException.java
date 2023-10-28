@@ -1,4 +1,4 @@
-package croc.education.ws2023spb.knightsmove;
+package croc.education.ws2023spb.knightsmove.exceptions;
 
 /**
  * Исключение, выбрасываемое в случае, если при перемещении шахматного коня из текущей клетки в следующую происходит с
@@ -7,5 +7,10 @@ package croc.education.ws2023spb.knightsmove;
  * @author Dmitry Malenok
  */
 public class IllegalMoveException extends Exception {
-    // TODO: наполнить класс.
+    public IllegalMoveException(String errorMessage) {
+        super(errorMessage);
+    }
+    public IllegalMoveException(String errorMessage, Throwable err) {
+        super(errorMessage, err);
+    }
 }

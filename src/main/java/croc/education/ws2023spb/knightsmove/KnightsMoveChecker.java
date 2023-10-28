@@ -1,5 +1,7 @@
 package croc.education.ws2023spb.knightsmove;
 
+import croc.education.ws2023spb.knightsmove.exceptions.IllegalPositionException;
+
 /**
  * Обработчик, проверяющий, что последовательность клеток на шахматной доске может быть пройдена ходом коня.
  * 
@@ -12,8 +14,8 @@ public interface KnightsMoveChecker {
      * 
      * @param positions
      *            последовательность клеток на шахматной доске, которую надо обойти от предыдущей клетки к следующей
-     * @throws IllegalMoveException
+     * @throws IllegalPositionException
      *             если при перемещении шахматного коня из текущей клетки в следующую происходит с нарушением правил
      */
-    void check(String[] positions) throws IllegalMoveException;
+    void check(String[] positions) throws IllegalPositionException;
 }

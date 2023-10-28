@@ -5,7 +5,7 @@ package croc.education.ws2023spb.knightsmove;
  * 
  * @author Dmitry Malenok
  */
-public interface ChessPosition {
+public abstract class ChessPosition {
 
     /**
      * Возвращает позицию фигуры по горизонтали.
@@ -14,7 +14,7 @@ public interface ChessPosition {
      * 
      * @return позицию фигуры по горизонтали
      */
-    int x();
+    abstract int x();
 
     /**
      * Возвращает позицию фигуры по вертикали.
@@ -23,7 +23,7 @@ public interface ChessPosition {
      * 
      * @return позицию фигуры по вертикали
      */
-    int y();
+    abstract int y();
 
     /**
      * Возвращает наименование клетки шахматной доски, на которой находится фигура, в
@@ -32,5 +32,7 @@ public interface ChessPosition {
      * @return наименование клетки шахматной доски, на которой находится фигура, в шахматной нотации
      */
     @Override
-    String toString();
+    public String toString() {
+        return String.format("%s%s", (char)('a'+x()), (y()+1));
+    }
 }
