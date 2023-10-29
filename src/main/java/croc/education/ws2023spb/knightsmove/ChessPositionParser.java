@@ -42,6 +42,6 @@ public final class ChessPositionParser {
         if(indexX == -1 || indexY == -1){
             throw new IllegalPositionException(validPositionsAtX,validPositionsAtY);
         }
-        return new ChessCoordinates(indexX,indexY);
+        return new ChessPositionClass(indexX,indexY);
     }
 }

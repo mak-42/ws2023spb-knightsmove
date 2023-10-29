@@ -5,7 +5,7 @@ package croc.education.ws2023spb.knightsmove;
  * @author Chernetsov Alexander
  * @see ChessPosition
  */
-public class ChessCoordinates implements  ChessPosition{
+public class ChessPositionClass implements  ChessPosition{
     /**
      * Поле, содержащее корректные значения координат
      */
@@ -25,7 +25,7 @@ public class ChessCoordinates implements  ChessPosition{
      * @throws IllegalPositionException
      *                                  исключение, выбрасываемое в случае некорректных значений полей
      */
-    public ChessCoordinates(int x, int y) throws IllegalPositionException {
+    public ChessPositionClass(int x, int y) throws IllegalPositionException {
         setX(x);
         setY(y);
     }
