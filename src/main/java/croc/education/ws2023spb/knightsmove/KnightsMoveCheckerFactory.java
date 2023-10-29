@@ -1,5 +1,7 @@
 package croc.education.ws2023spb.knightsmove;
 
+import croc.education.ws2023spb.knightsmove.exceptions.IllegalMoveException;
+
 /**
  * Класс, реализующий фабричный метод, возвращающий обработчики, проверяющие, что последовательность клеток на шахматной
  * доске может быть пройдена ходом коня.
@@ -22,7 +24,11 @@ public final class KnightsMoveCheckerFactory {
      * @return обработчик, проверяющий, что последовательность клеток на шахматной доске может быть пройдена ходом коня
      */
     public static KnightsMoveChecker get() {
-        // TODO: создать реализацию метода.
-        throw new UnsupportedOperationException("Вызван ещё не реализованный метод.");
+        return new KnightsMoveChecker() {
+            @Override
+            void check(String... positions) throws IllegalMoveException {
+                super.check(positions);
+            }
+        };
     }
 }

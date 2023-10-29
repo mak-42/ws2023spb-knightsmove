@@ -1,10 +1,9 @@
 package croc.education.ws2023spb.knightsmove.exceptions;
 
 /**
- * Исключение, выбрасываемое в случае, если при перемещении шахматного коня из текущей клетки в следующую происходит с
- * нарушением правил.
+ * Исключение, выбрасываемое в случае, если объявденная клетка не существует на доске
  *
- * @author Dmitry Malenok
+ * @author Alexander Samsonov
  */
 public class IllegalPositionException extends IndexOutOfBoundsException {
     public IllegalPositionException(String errorMessage) {
