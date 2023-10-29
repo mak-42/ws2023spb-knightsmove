@@ -14,8 +14,6 @@ public final class Application {
      *            аргументы
      */
     public static void main(final String[] args) {
-//        if (args.length < 2) System.out.println("Конь так не ходит");
-
         var checker = KnightsMoveCheckerFactory.get();
 
         try {

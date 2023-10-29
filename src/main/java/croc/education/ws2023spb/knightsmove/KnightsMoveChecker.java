@@ -21,15 +21,22 @@ public abstract class KnightsMoveChecker {
      */
     void check(String... positions) throws IllegalMoveException{
         List<ChessPosition> parsedPositions = new ArrayList<>();
-        for (var i: positions) {
-            parsedPositions.add(ChessPositionParser.parse(i));
+        for (var position: positions) {
+            parsedPositions.add(ChessPositionParser.parse(position));
         }
 
-        for (int i = 1; i < parsedPositions.size(); i++) {
-            ChessPosition start = parsedPositions.get(i-1);
-            ChessPosition finish = parsedPositions.get(i);
-            if (Math.abs(finish.x() - start.x()) + Math.abs(finish.y() - start.y()) != 3)
-                throw new IllegalMoveException(String.format("конь так не ходит: %s -> %s", start, finish));
+        final int legalDistance = 3;
+
+        for (int destinationPointer = 1; destinationPointer < parsedPositions.size(); destinationPointer++) {
+
+            ChessPosition start = parsedPositions.get(destinationPointer-1);
+            ChessPosition finish = parsedPositions.get(destinationPointer);
+
+            var deltaX = Math.abs(finish.x() - start.x());
+            var deltaY = Math.abs(finish.y() - start.y());
+
+            if (deltaX + deltaY != legalDistance)
+                throw new IllegalMoveException(start, finish);
         }
     }
 }

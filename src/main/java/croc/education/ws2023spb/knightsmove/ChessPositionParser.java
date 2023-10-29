@@ -33,19 +33,19 @@ public final class ChessPositionParser {
         int HorizontalChar = position.toLowerCase().charAt(0);
         int VerticalChar = position.charAt(1);
 
-        if (HorizontalChar < (int)'a' || (int)'h' < HorizontalChar || VerticalChar < (int)'1' || VerticalChar > (int)'8'){
+        if (HorizontalChar < 'a' || 'h' < HorizontalChar || VerticalChar < '1' || VerticalChar > '8'){
             throw new IllegalPositionException("The position is out of bounds");
         }
 
         return new ChessPosition() {
             @Override
             public int x() {
-                return HorizontalChar - (int)'a';
+                return HorizontalChar - 'a';
             }
 
             @Override
             public int y() {
-                return VerticalChar - (int)'1';
+                return VerticalChar - '1';
             }
         };
     }
