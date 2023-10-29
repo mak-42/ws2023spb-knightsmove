@@ -12,9 +12,8 @@ public final class Application {
      *            аргументы
      */
     public static void main(final String[] args) {
-        String[] test = {};
         try {
-            KnightsMoveCheckerFactory.get().check(test);
+            KnightsMoveCheckerFactory.get().check(args);
             System.out.print("OK");
         } catch(IllegalPositionException | IllegalMoveException ex){
             System.out.print(ex.getMessage());
