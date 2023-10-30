@@ -4,4 +4,4 @@
  * 
  * @author Dmitry Malenok
  */
-package croc.education.ws2023spb.knightsmove;
+package croc.education.ws2023spb.knightsmove.GerasimikPavel;

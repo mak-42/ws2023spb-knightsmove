@@ -13,7 +13,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <mainClass>croc.education.ws2023spb.knightsmove.Application</mainClass>
+        <mainClass>croc.education.ws2023spb.knightsmove.GerasimikPavel.Application</mainClass>
 
         <junit.version>5.10.0</junit.version>
         <assertj.version>3.24.2</assertj.version>

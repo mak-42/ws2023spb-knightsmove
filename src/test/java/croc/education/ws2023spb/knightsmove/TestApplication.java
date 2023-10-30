@@ -3,6 +3,7 @@ package croc.education.ws2023spb.knightsmove;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import croc.education.ws2023spb.knightsmove.GerasimikPavel.Application;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
