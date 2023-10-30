@@ -7,13 +7,12 @@ package croc.education.ws2023spb.knightsmove;
  */
 public class ChessPositionClass implements  ChessPosition{
     /**
-     * Поле, содержащее корректные значения координат
-     */
-    public static final String validPositions = "01234567";
-    /**
-     * Поля, содержащие координаты
+     * Поле, содержащее первую координату
      */
     private int x;
+    /**
+     * Поле, содержащее вторую координату
+     */
     private int y;
 
     /**
@@ -22,12 +21,10 @@ public class ChessPositionClass implements  ChessPosition{
      *          значение первой координаты
      * @param y
      *          значение второй координаты
-     * @throws IllegalPositionException
-     *                                  исключение, выбрасываемое в случае некорректных значений полей
      */
-    public ChessPositionClass(int x, int y) throws IllegalPositionException {
-        setX(x);
-        setY(y);
+    public ChessPositionClass(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -54,13 +51,8 @@ public class ChessPositionClass implements  ChessPosition{
      * Сеттер первой координаты
      * @param x
      *         значение первой координаты
-     * @throws IllegalPositionException
-     *                                 исключение, выбрасываемое в случае некорректного значения поля
      */
-    public void setX(int x) throws IllegalPositionException {
-        if(x > 7 || x < 0){
-            throw new IllegalPositionException(validPositions);
-        }
+    public void setX(int x) {
         this.x = x;
     }
 
@@ -68,13 +60,8 @@ public class ChessPositionClass implements  ChessPosition{
      * Сеттер второй координаты
      * @param y
      *         значение второй координаты
-     * @throws IllegalPositionException
-     *                                 исключение, выбрасываемое в случае некорректного значения поля
      */
-    public void setY(int y) throws IllegalPositionException {
-        if(y > 7 || y < 0){
-            throw new IllegalPositionException(validPositions);
-        }
+    public void setY(int y){
         this.y = y;
     }
 

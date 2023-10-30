@@ -13,16 +13,23 @@ public class KnightsMoveCheckerClass implements KnightsMoveChecker {
      * @throws IllegalMoveException если при перемещении шахматного коня из текущей клетки в следующую происходит с нарушением правил
      */
     @Override
-    public void check(String[] positions) throws IllegalMoveException {
+    public void check(String[] positions) throws IllegalMoveException, IllegalPositionException {
         if (positions == null || positions.length == 0) {
             throw new IllegalMoveException(null, null);
         }
-        if (positions.length == 1) {
-            throw new IllegalMoveException(ChessPositionParser.parse(positions[0]), null);
+        ChessPosition previousPosition;
+        ChessPosition currentPosition;
+        try {
+            previousPosition = ChessPositionParser.parse(positions[0]);
+        }catch (IllegalPositionException ex){
+            throw new IllegalPositionException(1, ex);
         }
-        ChessPosition previousPosition = ChessPositionParser.parse(positions[0]);
         for (int i = 1; i < positions.length; i++) {
-            ChessPosition currentPosition = ChessPositionParser.parse(positions[i]);
+            try{
+                currentPosition = ChessPositionParser.parse(positions[i]);
+            }catch (IllegalPositionException ex){
+                throw new IllegalPositionException(i+1, ex);
+            }
             if (!isValidMove(previousPosition, currentPosition)) {
                 throw new IllegalMoveException(previousPosition, currentPosition);
             }
@@ -42,10 +49,7 @@ public class KnightsMoveCheckerClass implements KnightsMoveChecker {
      *          false в случае, если конь так ходить не может
      */
     private boolean isValidMove(ChessPosition pos1, ChessPosition pos2) {
-        if (Math.abs(pos1.x() - pos2.x()) == 1 && Math.abs(pos1.y() - pos2.y()) == 2 ||
-                Math.abs(pos1.x() - pos2.x()) == 2 && Math.abs(pos1.y() - pos2.y()) == 1) {
-            return true;
-        }
-        return false;
+        return (Math.abs(pos1.x() - pos2.x()) == 1 && Math.abs(pos1.y() - pos2.y()) == 2 ||
+                Math.abs(pos1.x() - pos2.x()) == 2 && Math.abs(pos1.y() - pos2.y()) == 1);
     }
 }
