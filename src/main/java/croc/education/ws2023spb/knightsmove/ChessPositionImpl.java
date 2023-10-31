@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ChessPositionImpl implements ChessPosition {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
     private static Map<Integer, String> chessColumns = new HashMap<>();
 
     // По ощущениям заполнение этой мапы можно было сделать элегантнее, но выбрал самый банальный вариант

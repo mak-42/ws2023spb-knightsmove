@@ -1,7 +1,5 @@
 package croc.education.ws2023spb.knightsmove;
 
-import java.util.Map;
-
 /**
  * Расположение фигуры на традиционной шахматной доске 8x8.
  * 

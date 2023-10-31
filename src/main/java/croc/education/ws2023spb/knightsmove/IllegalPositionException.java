@@ -4,10 +4,6 @@ public class IllegalPositionException extends RuntimeException{
 
     private String message;
 
-    public IllegalPositionException() {
-        super();
-    }
-
     public IllegalPositionException(String message) {
         this.message = message;
     }
