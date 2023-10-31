@@ -29,7 +29,7 @@ public class ChessPositionImpl implements ChessPosition {
         }
 
         if (y < 0 || y > 7) {
-            throw new IllegalPositionException("Illegal value of argument y = %d. 'Y' position value ".formatted(x) +
+            throw new IllegalPositionException("Illegal value of argument y = %d. 'Y' position value ".formatted(y) +
                     "should belong [0, 7]");
         }
 
