@@ -47,7 +47,7 @@ public class TestApplication {
      * Тест запуска приложения с неверным ходом в последовательности ходов.
      */
     @Test
-    public void testIllegalMove() {
+    public void testIllegalMove() throws IllegalMoveException, IllegalPositionException {
         // given:
         final String[] moves = new String[] { "g8", "e7", "e6" };
 
@@ -62,7 +62,7 @@ public class TestApplication {
      * Тест запуска приложения с верной последовательностью ходов.
      */
     @Test
-    public void testLegalMoves() {
+    public void testLegalMoves() throws IllegalMoveException, IllegalPositionException {
         // given:
         final String[] moves = new String[] { "g8", "e7", "c8" };
 

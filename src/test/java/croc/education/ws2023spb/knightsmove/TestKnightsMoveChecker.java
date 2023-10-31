@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Тест методов {@link KnightsMoveChecker}.
+ * Тест методов {@link IKnightsMoveChecker}.
  * 
  * @author Dmitry Malenok
  */
@@ -15,7 +15,7 @@ public class TestKnightsMoveChecker {
     /**
      * Тестируемый обработчик.
      */
-    private KnightsMoveChecker checker;
+    private IKnightsMoveChecker checker;
 
     /**
      * Инициализация, выполняемая перед каждым тестом.
@@ -26,7 +26,7 @@ public class TestKnightsMoveChecker {
     }
 
     /**
-     * Тест метода {@link KnightsMoveChecker#check(ChessPosition[])}.
+     * Тест метода {@link IKnightsMoveChecker#check(IChessPosition[])}.
      * <p/>
      * Проверяет один правильный ход.
      * 
@@ -34,7 +34,7 @@ public class TestKnightsMoveChecker {
      *             при ошибке теста
      */
     @Test
-    public void checkOneLegalMove() throws IllegalMoveException {
+    public void checkOneLegalMove() throws IllegalMoveException, IllegalPositionException {
         // given:
 
         // when:
@@ -46,7 +46,7 @@ public class TestKnightsMoveChecker {
     }
 
     /**
-     * Тест метода {@link KnightsMoveChecker#check(ChessPosition[])}.
+     * Тест метода {@link IKnightsMoveChecker#check(IChessPosition[])}.
      * <p/>
      * Проверяет обход доски конём по маршруту Яниша.
      * 
@@ -54,7 +54,7 @@ public class TestKnightsMoveChecker {
      *             при ошибке теста
      */
     @Test
-    public void checkJaenischSequence() throws IllegalMoveException {
+    public void checkJaenischSequence() throws IllegalMoveException, IllegalPositionException {
         // given:
 
         // when:
@@ -127,7 +127,7 @@ public class TestKnightsMoveChecker {
     }
 
     /**
-     * Тест метода {@link KnightsMoveChecker#check(ChessPosition[])}.
+     * Тест метода {@link IKnightsMoveChecker#check(IChessPosition[])}.
      * <p/>
      * Проверяет неправильный ход.
      * 

@@ -1,19 +1,24 @@
 package croc.education.ws2023spb.knightsmove;
 
-/**
- * Обработчик, проверяющий, что последовательность клеток на шахматной доске может быть пройдена ходом коня.
- * 
- * @author Dmitry Malenok
- */
-public interface KnightsMoveChecker {
+import java.util.ArrayList;
 
-    /**
-     * Проверяет, что указанная последовательность клеток на шахматной доске может быть пройдена ходом шахматного коня.
-     * 
-     * @param positions
-     *            последовательность клеток на шахматной доске, которую надо обойти от предыдущей клетки к следующей
-     * @throws IllegalMoveException
-     *             если при перемещении шахматного коня из текущей клетки в следующую происходит с нарушением правил
-     */
-    void check(String[] positions) throws IllegalMoveException;
+public class KnightsMoveChecker implements IKnightsMoveChecker {
+    @Override
+    public void check(String[] positions) throws IllegalPositionException, IllegalMoveException {
+        ArrayList<ChessPosition> chessPositions = new ArrayList<ChessPosition>();
+        for (String position : positions) {
+            chessPositions.add(ChessPositionParser.parse(position));
+        }
+        for (int i = 0; i < chessPositions.size() - 1; i++) {
+            if (!checkMove(chessPositions.get(i), chessPositions.get(i + 1))) {
+                throw new IllegalMoveException(String.format("конь так не ходит: %s -> %s", positions[i], positions[i + 1]));
+            }
+        }
+    }
+
+    private boolean checkMove(ChessPosition position1, ChessPosition position2) {
+        int dx = Math.abs(position1.x() - position2.x());
+        int dy = Math.abs(position1.y() - position2.y());
+        return dx == 1 && dy == 2 || dx == 2 && dy == 1;
+    }
 }

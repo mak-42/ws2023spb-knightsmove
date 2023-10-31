@@ -18,14 +18,14 @@ public class TestChessPositionParser {
      * Проверяет правильность преобразования наименования одной из клеток внутри доски.
      */
     @Test
-    public void parseSomethingInside() {
+    public void parseSomethingInside() throws IllegalPositionException {
         // given:
         final String position = "e4";
         final int expectedX = 4;
         final int expectedY = 3;
 
         // when:
-        final ChessPosition result = ChessPositionParser.parse(position);
+        final IChessPosition result = ChessPositionParser.parse(position);
         assertThat(result).isNotNull();
         assertThat(result.x()).isEqualTo(expectedX);
         assertThat(result.y()).isEqualTo(expectedY);
@@ -38,14 +38,14 @@ public class TestChessPositionParser {
      * Проверяет правильность преобразования наименования левой нижней клетки.
      */
     @Test
-    public void parseLowerLeftConner() {
+    public void parseLowerLeftConner() throws IllegalPositionException {
         // given:
         final String position = "a1";
         final int expectedX = 0;
         final int expectedY = 0;
 
         // when:
-        final ChessPosition result = ChessPositionParser.parse(position);
+        final IChessPosition result = ChessPositionParser.parse(position);
 
         // then:
         assertThat(result).isNotNull();
@@ -60,14 +60,14 @@ public class TestChessPositionParser {
      * Проверяет правильность преобразования наименования правой верхней клетки.
      */
     @Test
-    public void parseUpperRightConner() {
+    public void parseUpperRightConner() throws IllegalPositionException {
         // given:
         final String position = "h8";
         final int expectedX = 7;
         final int expectedY = 7;
 
         // when:
-        final ChessPosition result = ChessPositionParser.parse(position);
+        final IChessPosition result = ChessPositionParser.parse(position);
 
         // then:
         assertThat(result).isNotNull();

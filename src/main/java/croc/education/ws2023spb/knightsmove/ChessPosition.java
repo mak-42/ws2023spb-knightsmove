@@ -1,36 +1,56 @@
 package croc.education.ws2023spb.knightsmove;
 
-/**
- * Расположение фигуры на традиционной шахматной доске 8x8.
- * 
- * @author Dmitry Malenok
- */
-public interface ChessPosition {
+public class ChessPosition implements IChessPosition {
+    private int xPosition;
+    private int yPosition;
 
-    /**
-     * Возвращает позицию фигуры по горизонтали.
-     * <p/>
-     * Возможные значения: 0 - 7.
-     * 
-     * @return позицию фигуры по горизонтали
-     */
-    int x();
+    public ChessPosition(int xPosition, int yPosition) throws IllegalPositionException {
+        if (checkPositionValidity(xPosition)) {
+            this.xPosition = xPosition;
+        } else {
+            throw new IllegalPositionException("X position must be between a and h");
+        }
+        if (checkPositionValidity(yPosition)) {
+            this.yPosition = yPosition;
+        } else {
+            throw new IllegalPositionException("Y position must be between 1 and 8");
+        }
+    }
 
-    /**
-     * Возвращает позицию фигуры по вертикали.
-     * <p/>
-     * Возможные значения: 0 - 7.
-     * 
-     * @return позицию фигуры по вертикали
-     */
-    int y();
+    private boolean checkPositionValidity(int a) {
+        return a >= 0 && a <= 7;
+    }
 
-    /**
-     * Возвращает наименование клетки шахматной доски, на которой находится фигура, в
-     * <a href="https://w.wiki/7pFN">шахматной нотации</a>.
-     * 
-     * @return наименование клетки шахматной доски, на которой находится фигура, в шахматной нотации
-     */
     @Override
-    String toString();
+    public int x() {
+        return xPosition;
+    }
+
+    @Override
+    public int y() {
+        return yPosition;
+    }
+
+    @Override
+    public String toString() {
+        char column = (char) (97 + xPosition);
+        return String.format("%s%s", column, yPosition + 1);
+    }
+
+    public void setXPosition(int xPosition) throws IllegalPositionException {
+        if (checkPositionValidity(xPosition)) {
+            this.xPosition = xPosition;
+        } else {
+            throw new IllegalPositionException("X position must be between 0 and 7");
+        }
+    }
+
+
+    public void setYPosition(int yPosition) throws IllegalPositionException {
+        if (checkPositionValidity(yPosition)) {
+            this.yPosition = yPosition;
+        } else {
+            throw new IllegalPositionException("Y position must be between 0 and 7");
+        }
+    }
 }
