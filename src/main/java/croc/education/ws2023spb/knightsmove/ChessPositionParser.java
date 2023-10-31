@@ -47,6 +47,12 @@ public final class ChessPositionParser {
             public int y() {
                 return VerticalChar - '1';
             }
+
+            @Override
+            public String toString() {
+                return String.format("%s%s", (char) ('a' + x()), (y() + 1));
+            }
+
         };
     }
 }
