@@ -11,6 +11,8 @@ jobs:
     permissions:
       checks: write
       contents: read
+      pull-requests: write
+      repository-projects: write
 
     steps:
     - uses: actions/checkout@v3
