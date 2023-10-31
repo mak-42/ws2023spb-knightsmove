@@ -12,7 +12,11 @@ public final class Application {
      *            аргументы
      */
     public static void main(final String[] args) {
-        // TODO: реализовать логику исполнения программы.
-        System.out.print("Логика программы ещё не реализована");
+        try {
+            KnightsMoveCheckerFactory.get().check(args);
+            System.out.print("OK");
+        } catch(IllegalPositionException | IllegalMoveException ex){
+            System.out.print(ex.getMessage());
+        }
     }
 }
