@@ -2,7 +2,7 @@ package croc.education.ws2023spb.knightsmove;
 
 /**
  * Расположение фигуры на традиционной шахматной доске 8x8.
- * 
+ *
  * @author Dmitry Malenok
  */
 public interface ChessPosition {
@@ -11,7 +11,7 @@ public interface ChessPosition {
      * Возвращает позицию фигуры по горизонтали.
      * <p/>
      * Возможные значения: 0 - 7.
-     * 
+     *
      * @return позицию фигуры по горизонтали
      */
     int x();
@@ -20,7 +20,7 @@ public interface ChessPosition {
      * Возвращает позицию фигуры по вертикали.
      * <p/>
      * Возможные значения: 0 - 7.
-     * 
+     *
      * @return позицию фигуры по вертикали
      */
     int y();
@@ -28,7 +28,7 @@ public interface ChessPosition {
     /**
      * Возвращает наименование клетки шахматной доски, на которой находится фигура, в
      * <a href="https://w.wiki/7pFN">шахматной нотации</a>.
-     * 
+     *
      * @return наименование клетки шахматной доски, на которой находится фигура, в шахматной нотации
      */
     @Override

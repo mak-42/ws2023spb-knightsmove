@@ -8,8 +8,7 @@ public final class Application {
     /**
      * Основной метод приложения.
      *
-     * @param args
-     *            аргументы
+     * @param args аргументы
      */
     public static void main(final String[] args) {
         var checker = KnightsMoveCheckerFactory.get();
@@ -17,8 +16,7 @@ public final class Application {
         try {
             checker.check(args);
             System.out.print("OK");
-        }
-        catch (IllegalMoveException e){
+        } catch (IllegalMoveException e) {
             System.out.print(e.getMessage());
         }
     }
