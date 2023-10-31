@@ -3,8 +3,6 @@ package croc.education.ws2023spb.knightsmove;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import croc.education.ws2023spb.knightsmove.GerasimikPavel.ChessPosition;
-import croc.education.ws2023spb.knightsmove.GerasimikPavel.ChessPositionParser;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -40,7 +38,7 @@ public class TestChessPositionParser {
      * Проверяет правильность преобразования наименования левой нижней клетки.
      */
     @Test
-    public void parseLowerLeftConner()  {
+    public void parseLowerLeftConner() {
         // given:
         final String position = "a1";
         final int expectedX = 0;

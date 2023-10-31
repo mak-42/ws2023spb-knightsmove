@@ -2,10 +2,6 @@ package croc.education.ws2023spb.knightsmove;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import croc.education.ws2023spb.knightsmove.GerasimikPavel.ChessPosition;
-import croc.education.ws2023spb.knightsmove.GerasimikPavel.IllegalMoveException;
-import croc.education.ws2023spb.knightsmove.GerasimikPavel.KnightsMoveChecker;
-import croc.education.ws2023spb.knightsmove.GerasimikPavel.KnightsMoveCheckerFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

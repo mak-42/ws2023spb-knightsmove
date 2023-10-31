@@ -1,4 +1,4 @@
-package croc.education.ws2023spb.knightsmove.GerasimikPavel;
+package croc.education.ws2023spb.knightsmove;
 
 public class IllegalPositionException extends RuntimeException{
     private final String position;

@@ -1,4 +1,4 @@
-package croc.education.ws2023spb.knightsmove.GerasimikPavel;
+package croc.education.ws2023spb.knightsmove;
 
 /**
  * Класс, содержащий методы преобразования в объект расположения фигуры на шахматной доске из различных форматов.

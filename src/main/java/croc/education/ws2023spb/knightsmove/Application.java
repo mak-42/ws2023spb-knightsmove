@@ -1,4 +1,4 @@
-package croc.education.ws2023spb.knightsmove.GerasimikPavel;
+package croc.education.ws2023spb.knightsmove;
 
 /**
  * Приложение, проверяющее возможность прохождения последовательности клеток на шахматной доске ходом коня.
