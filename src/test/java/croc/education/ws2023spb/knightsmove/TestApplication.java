@@ -32,7 +32,7 @@ public class TestApplication {
      */
     @BeforeEach
     protected void setUp() {
-        System.setOut(new PrintStream(outputStreamCaptor, true, UTF_8));
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
     /**

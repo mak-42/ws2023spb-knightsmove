@@ -1,4 +1,4 @@
-package croc.education.ws2023spb.knightsmove.exceptions;
+package croc.education.ws2023spb.knightsmove;
 
 /**
  * Исключение, выбрасываемое в случае, если объявденная клетка не существует на доске

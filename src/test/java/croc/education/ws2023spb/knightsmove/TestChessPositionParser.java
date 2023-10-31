@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Тесты методов {@link ChessPositionParser}.
- *
+ * 
  * @author Dmitry Malenok
  */
 public class TestChessPositionParser {

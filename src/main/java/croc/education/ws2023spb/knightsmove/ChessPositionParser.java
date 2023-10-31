@@ -1,8 +1,6 @@
 package croc.education.ws2023spb.knightsmove;
 
 
-import croc.education.ws2023spb.knightsmove.exceptions.IllegalPositionException;
-
 /**
  * Класс, содержащий методы преобразования в объект расположения фигуры на шахматной доске из различных форматов.
  * 

@@ -1,7 +1,5 @@
 package croc.education.ws2023spb.knightsmove;
 
-import croc.education.ws2023spb.knightsmove.exceptions.IllegalMoveException;
-
 /**
  * Приложение, проверяющее возможность прохождения последовательности клеток на шахматной доске ходом коня.
  */

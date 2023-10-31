@@ -1,7 +1,5 @@
 package croc.education.ws2023spb.knightsmove;
 
-import croc.education.ws2023spb.knightsmove.exceptions.IllegalMoveException;
-
 /**
  * Класс, реализующий фабричный метод, возвращающий обработчики, проверяющие, что последовательность клеток на шахматной
  * доске может быть пройдена ходом коня.
