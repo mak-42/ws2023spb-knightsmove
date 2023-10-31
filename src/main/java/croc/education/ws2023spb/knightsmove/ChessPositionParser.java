@@ -26,6 +26,6 @@ public final class ChessPositionParser {
      */
     public static ChessPosition parse(final String position) {
         // TODO: создать реализацию метода.
-        throw new UnsupportedOperationException("Вызван ещё не реализованный метод.");
+        return null;
     }
 }
