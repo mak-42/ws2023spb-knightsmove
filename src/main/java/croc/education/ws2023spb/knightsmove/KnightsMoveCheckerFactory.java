@@ -22,7 +22,22 @@ public final class KnightsMoveCheckerFactory {
      * @return обработчик, проверяющий, что последовательность клеток на шахматной доске может быть пройдена ходом коня
      */
     public static KnightsMoveChecker get() {
-        // TODO: создать реализацию метода.
-        throw new UnsupportedOperationException("Вызван ещё не реализованный метод.");
+        return new KnightsMoveChecker() {
+            @Override
+            public void check(String[] positions) throws IllegalMoveException, IllegalPositionException {
+                boolean check = true;
+                Position p1 = null;
+                Position p2 = null;
+                for (int i = 0; i < positions.length - 1 && check; i++) {
+                    p1 = (Position) ChessPositionParser.parse(positions[i]);
+                    p2 = (Position) ChessPositionParser.parse(positions[i + 1]);
+                    check = (((Math.abs(p1.x() - p2.x()) == 2) && (Math.abs(p1.y() - p2.y()) == 1))
+                            || ((Math.abs(p1.x() - p2.x()) == 1) && (Math.abs(p1.y() - p2.y()) == 2)));
+                }
+                if (!check) {
+                    throw new IllegalMoveException(p1, p2);
+                }
+            }
+        };
     }
 }
