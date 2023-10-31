@@ -27,7 +27,7 @@ public class TestKnightsMoveChecker {
     }
 
     /**
-     * Тест метода {@link "KnightsMoveChecker#check(ChessPosition[]")}.
+     * Тест метода {@link KnightsMoveChecker#check(ChessPosition[])}.
      * <p/>
      * Проверяет один правильный ход.
      *
@@ -47,7 +47,7 @@ public class TestKnightsMoveChecker {
     }
 
     /**
-     * Тест метода {@link "KnightsMoveChecker#check(ChessPosition[])"}.
+     * Тест метода {@link KnightsMoveChecker#check(ChessPosition[])}.
      * <p/>
      * Проверяет обход доски конём по маршруту Яниша.
      *
@@ -128,7 +128,7 @@ public class TestKnightsMoveChecker {
     }
 
     /**
-     * Тест метода {@link "KnightsMoveChecker#check(ChessPosition[])"}.
+     * Тест метода {@link KnightsMoveChecker#check(ChessPosition[])}.
      * <p/>
      * Проверяет неправильный ход.
      *
