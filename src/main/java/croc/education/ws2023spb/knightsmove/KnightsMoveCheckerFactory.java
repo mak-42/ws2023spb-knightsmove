@@ -25,6 +25,7 @@ public final class KnightsMoveCheckerFactory {
      * @return обработчик, проверяющий, что последовательность клеток на шахматной доске может быть пройдена ходом коня
      */
     public static KnightsMoveChecker get() {
+        // Решил сделать через анонимный класс
         return new KnightsMoveChecker() {
             @Override
             public void check(String[] positions) throws IllegalMoveException {
