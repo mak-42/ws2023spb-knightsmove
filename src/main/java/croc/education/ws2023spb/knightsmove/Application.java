@@ -13,6 +13,7 @@ public final class Application {
      */
     public static void main(final String[] args) {
         // TODO: реализовать логику исполнения программы.
+        System.out.println("Hello commit");
         System.out.print("Логика программы ещё не реализована");
     }
 }
