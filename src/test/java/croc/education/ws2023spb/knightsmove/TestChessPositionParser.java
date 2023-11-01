@@ -16,9 +16,10 @@ public class TestChessPositionParser {
      * Тест метода {@link ChessPositionParser#parse(String)}.
      * <p/>
      * Проверяет правильность преобразования наименования одной из клеток внутри доски.
+     * @throws IllegalPositionException
      */
     @Test
-    public void parseSomethingInside() {
+    public void parseSomethingInside() throws IllegalPositionException {
         // given:
         final String position = "e4";
         final int expectedX = 4;
@@ -36,9 +37,10 @@ public class TestChessPositionParser {
      * Тест метода {@link ChessPositionParser#parse(String)}.
      * <p/>
      * Проверяет правильность преобразования наименования левой нижней клетки.
+     * @throws IllegalPositionException
      */
     @Test
-    public void parseLowerLeftConner() {
+    public void parseLowerLeftConner() throws IllegalPositionException {
         // given:
         final String position = "a1";
         final int expectedX = 0;
@@ -58,9 +60,10 @@ public class TestChessPositionParser {
      * Тест метода {@link ChessPositionParser#parse(String)}.
      * <p/>
      * Проверяет правильность преобразования наименования правой верхней клетки.
+     * @throws IllegalPositionException
      */
     @Test
-    public void parseUpperRightConner() {
+    public void parseUpperRightConner() throws IllegalPositionException {
         // given:
         final String position = "h8";
         final int expectedX = 7;
