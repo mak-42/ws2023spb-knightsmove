@@ -20,6 +20,6 @@ public class IllegalMoveException extends Exception {
 
     @Override
     public String getMessage() {
-        return "Конь так не ходит: " + p1 + " -> " + p2;
+        return "конь так не ходит: " + p1 + " -> " + p2;
     }
 }

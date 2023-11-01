@@ -2,7 +2,7 @@ package croc.education.ws2023spb.knightsmove;
 
 import java.io.IOException;
 
-public class IllegalPositionException extends IOException {
+public class IllegalPositionException extends RuntimeException {
     private String message;
 
     public IllegalPositionException(String message) {
@@ -10,7 +10,7 @@ public class IllegalPositionException extends IOException {
     }
 
     public IllegalPositionException() {
-        this.message = "Incorrect position for chess figure";
+        this.message = "IllegalPositionException";
     }
 
     @Override
