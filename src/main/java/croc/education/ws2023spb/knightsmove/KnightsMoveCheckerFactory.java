@@ -23,6 +23,7 @@ public final class KnightsMoveCheckerFactory {
      */
     public static KnightsMoveChecker get() {
         // TODO: создать реализацию метода.
-        throw new UnsupportedOperationException("Вызван ещё не реализованный метод.");
+    return new MyKnightsMoveChecker();
+        //throw new UnsupportedOperationException("Вызван ещё не реализованный метод.");
     }
 }
