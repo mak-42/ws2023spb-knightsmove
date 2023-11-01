@@ -53,7 +53,7 @@ public final class ChessPositionParser {
         int x = chessColumns.get(position.charAt(0));
         int y = Character.getNumericValue(position.charAt(1)) - 1;
 
-        if (y < 0 || y > 7) {
+        if (y < 0 || y > 7 || !Character.isDigit(position.charAt(1))) {
             throw new IllegalPositionException("Unknown position : " + position);
         }
 
