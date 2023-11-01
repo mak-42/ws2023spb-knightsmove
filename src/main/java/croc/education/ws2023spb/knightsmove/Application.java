@@ -14,6 +14,7 @@ public final class Application {
     public static void main(final String[] args){
         try {
             KnightsMoveCheckerFactory.get().check(args);
+            System.out.print("OK");
         } catch (IllegalMoveException e) {
             System.out.print(e.getMessage());
         }

@@ -1,8 +1,5 @@
 package croc.education.ws2023spb.knightsmove;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Класс, реализующий фабричный метод, возвращающий обработчики, проверяющие, что последовательность клеток на шахматной
  * доске может быть пройдена ходом коня.
@@ -34,32 +31,16 @@ public final class KnightsMoveCheckerFactory {
                         throw new IllegalMoveException("конь так не ходит: " + positions[i] + " -> " + positions[i + 1]);
                     }
                 }
-                System.out.print("OK");
             }
 
-            // По ощущениям, немного кринжово сделано, но первое, что пришло в голову и что вроде как работает
             private boolean moveCanBeMade(String start, String finish) {
-                List<String> possibleMoves = new ArrayList<>();
-                ChessPosition chessPosition = ChessPositionParser.parse(start);
-                int startX = chessPosition.x();
-                int startY = chessPosition.y();
-                int[] offsets = new int[]{-2, -1, 1, 2};
+                ChessPosition chessPositionStart = ChessPositionParser.parse(start);
+                ChessPosition chessPositionFinish = ChessPositionParser.parse(finish);
 
-                for (int dx : offsets) {
-                    for (int dy : offsets) {
-                        if (Math.abs(dx) != Math.abs(dy) && moveIsValid(chessPosition, dx, dy)) {
-                            possibleMoves.add(new ChessPositionImpl(startX + dx, startY + dy).toString());
-                        }
-                    }
-                }
+                int dx = Math.abs(chessPositionStart.x() - chessPositionFinish.x());
+                int dy = Math.abs(chessPositionStart.y() - chessPositionFinish.y());
 
-                return possibleMoves.contains(finish);
-            }
-
-            // Вынес проверку на возможность хода в отдельный метод
-            private boolean moveIsValid(ChessPosition chessPosition, int dx, int dy) {
-                return (chessPosition.x() + dx >= 0) && (chessPosition.x() + dx <= 7) &&
-                        (chessPosition.y() + dy >= 0) && (chessPosition.y() + dy <= 7);
+                return dx == 1 && dy == 2 || dx == 2 && dy == 1;
             }
         };
     }
