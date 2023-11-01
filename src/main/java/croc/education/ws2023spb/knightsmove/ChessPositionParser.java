@@ -24,6 +24,9 @@ public final class ChessPositionParser {
      * @return объект расположения фигуры на шахматной доске, соответствующий переданному наименованию клетки
      */
     public static ChessPosition parse(final String position) throws IllegalPositionException {
+        if (position == null || position.length() != 2) {
+            throw new IllegalPositionException();
+        }
         int x = (position.charAt(0) - 'a');
         int y = Character.getNumericValue(position.charAt(1)) - 1;
         return new Position(x, y);
