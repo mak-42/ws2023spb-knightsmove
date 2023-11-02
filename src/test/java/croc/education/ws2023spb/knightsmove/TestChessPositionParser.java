@@ -97,7 +97,7 @@ public class TestChessPositionParser {
                 exception -> assertThat(exception.getClass().getSimpleName()).isEqualTo(expectedExceptionClassName));
         assertThatThrownBy(() -> ChessPositionParser.parse("k1")).satisfies(
                 exception -> assertThat(exception.getClass().getSimpleName()).isEqualTo(expectedExceptionClassName));
-                assertThatThrownBy(() -> ChessPositionParser.parse("a23")).satisfies(
-                        exception -> assertThat(exception.getClass().getSimpleName()).isEqualTo(expectedExceptionClassName));
+        assertThatThrownBy(() -> ChessPositionParser.parse("a23")).satisfies(
+                exception -> assertThat(exception.getClass().getSimpleName()).isEqualTo(expectedExceptionClassName));
     }
 }
