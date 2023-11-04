@@ -45,12 +45,10 @@ public final class ChessPositionParser {
      */
     public static ChessPosition parse(final String position) throws IllegalPositionException{
         if (position.length() != 2) {
-            System.out.println(position.substring(1, 1));
             throw new IllegalPositionException("Unknown position : " + position);
         }
 
         if (chessColumns.get(position.charAt(0)) == null) {
-            System.out.println(position.substring(1, 1));
             throw new IllegalPositionException("Unknown position : " + position);
         }
 
