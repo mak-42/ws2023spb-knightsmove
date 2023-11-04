@@ -15,5 +15,5 @@ public interface KnightsMoveChecker {
      * @throws IllegalMoveException
      *             если при перемещении шахматного коня из текущей клетки в следующую происходит с нарушением правил
      */
-    void check(String[] positions) throws IllegalMoveException, IllegalPositionException;
+    void check(String[] positions) throws IllegalMoveException;
 }
