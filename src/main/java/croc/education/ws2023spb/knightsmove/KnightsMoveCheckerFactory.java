@@ -1,8 +1,5 @@
 package croc.education.ws2023spb.knightsmove;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Класс, реализующий фабричный метод, возвращающий обработчики, проверяющие, что последовательность клеток на шахматной
  * доске может быть пройдена ходом коня.
@@ -26,23 +23,23 @@ public final class KnightsMoveCheckerFactory {
      */
     public static KnightsMoveChecker get() {
         return positions -> {
-            List<ChessPosition> parsedPositions = new ArrayList<>();
+            final int LEGAL_DISTANCE = 3;
+            ChessPosition prev = null;
+
             for (var position : positions) {
-                parsedPositions.add(ChessPositionParser.parse(position));
-            }
+                var cur = ChessPositionParser.parse(position);
 
-            final int legalDistance = 3;
+                if (prev == null) {
+                    prev = cur;
+                    continue;
+                }
 
-            for (int destinationPointer = 1; destinationPointer < parsedPositions.size(); destinationPointer++) {
+                var deltaX = Math.abs(cur.x() - prev.x());
+                var deltaY = Math.abs(cur.y() - prev.y());
 
-                ChessPosition start = parsedPositions.get(destinationPointer - 1);
-                ChessPosition finish = parsedPositions.get(destinationPointer);
-
-                var deltaX = Math.abs(finish.x() - start.x());
-                var deltaY = Math.abs(finish.y() - start.y());
-
-                if (deltaX + deltaY != legalDistance || Math.abs(deltaX - deltaY) != 1)
-                    throw new IllegalMoveException(start, finish);
+                if (deltaX + deltaY != LEGAL_DISTANCE || Math.abs(deltaX - deltaY) != 1)
+                    throw new IllegalMoveException(prev, cur);
+                prev = cur;
             }
         };
     }
