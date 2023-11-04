@@ -9,6 +9,6 @@ public class IllegalPositionException extends RuntimeException{
 
     @Override
     public String getMessage() {
-        return "Позиции " + position + " несуществует, пожалуйста, проверьте корректность написания данной позиции.";
+        return "Позиции " + position + " не существует, пожалуйста, проверьте корректность написания данной позиции.";
     }
 }
