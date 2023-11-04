@@ -45,17 +45,19 @@ public final class ChessPositionParser {
      */
     public static ChessPosition parse(final String position) throws IllegalPositionException{
         if (position.length() != 2) {
+            System.out.println(position.substring(1, 1));
             throw new IllegalPositionException("Unknown position : " + position);
         }
 
         if (chessColumns.get(position.charAt(0)) == null) {
+            System.out.println(position.substring(1, 1));
             throw new IllegalPositionException("Unknown position : " + position);
         }
 
         int x = chessColumns.get(position.charAt(0));
 
-        Pattern pattern = Pattern.compile("[1-7]]");
-        Matcher matcher = pattern.matcher(position.substring(1, 1));
+        Pattern pattern = Pattern.compile("[1-7]");
+        Matcher matcher = pattern.matcher(position.substring(1, 2));
 
         if (!matcher.matches()) {
             throw new IllegalPositionException("Unknown position : " + position);
