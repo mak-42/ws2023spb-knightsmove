@@ -4,9 +4,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import static croc.education.ws2023spb.knightsmove.ChessboardPosition.MAX_POSITION;
-import static croc.education.ws2023spb.knightsmove.ChessboardPosition.MIN_POSITION;
-
 /**
  * Класс, содержащий методы преобразования в объект расположения фигуры на шахматной доске из различных форматов.
  * 
@@ -42,26 +39,18 @@ public final class ChessPositionParser {
      *            наименование клетки шахматной доски, на которой находится фигура
      * @return объект расположения фигуры на шахматной доске, соответствующий переданному наименованию клетки
      */
-    public static ChessPosition parse(final String position) throws IllegalPositionException {
-        if (position.length() != 2) {
+    public static ChessPosition parse(final String position) {
+        if ((position == null) || !position.matches("[a-h][1-8]")) {
             throw new IllegalPositionException("Наименование клетки должно состоять из двух символов: <колонка от 'a' до 'h'><строка от 1 до 8>");
         }
 
-        char charX = position.toLowerCase().charAt(0);
-        if (!letterToPositionX.containsKey(charX)) {
-            throw new IllegalPositionException("Позиция X должна находиться в диапазоне от " + MIN_POSITION + " до " + MAX_POSITION);
-        }
+        char charX = position.charAt(0);
         int columnX = letterToPositionX.get(charX);
 
-        char charY = position.toLowerCase().charAt(1);
-        if (!Character.isDigit(charY)) {
-            throw new IllegalPositionException("Позиция Y должна быть выражена цифрой в диапазоне от " + MIN_POSITION + " до " + MAX_POSITION);
-        }
+        char charY = position.charAt(1);
         int rowY = Character.getNumericValue(charY) - 1;
-        if (rowY < 0 || rowY > 7) {
-            throw new IllegalPositionException("Позиция Y должна находиться в диапазоне от " + MIN_POSITION + " до " + MAX_POSITION);
-        }
 
-        return new ChessboardPosition(columnX,rowY);
+        return new ChessboardPosition(columnX, rowY);
+
     }
 }
