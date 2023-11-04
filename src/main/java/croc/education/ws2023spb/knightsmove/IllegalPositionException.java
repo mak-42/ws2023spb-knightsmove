@@ -5,7 +5,7 @@ package croc.education.ws2023spb.knightsmove;
  *
  * @author Alexander Samsonov
  */
-public class IllegalPositionException extends IndexOutOfBoundsException {
+public class IllegalPositionException extends IllegalArgumentException {
     public IllegalPositionException(String errorMessage) {
         super(errorMessage);
     }

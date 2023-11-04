@@ -25,7 +25,8 @@ public final class ChessPositionParser {
      * @return объект расположения фигуры на шахматной доске, соответствующий переданному наименованию клетки
      */
     public static ChessPosition parse(final String position) {
-        if (position.length() != 2) throw new IllegalPositionException("the position is formatted wrongly");
+        if (position.length() != 2)
+            throw new IllegalPositionException("position" + position + "is formatted wrongly. It must be in the form 1a-8h, not case sensitive");
 
         int HorizontalChar = position.toLowerCase().charAt(0);
         int VerticalChar = position.charAt(1);
@@ -34,15 +35,18 @@ public final class ChessPositionParser {
             throw new IllegalPositionException("The position is out of bounds");
         }
 
+        var x = HorizontalChar - 'a';
+        var y = VerticalChar - '1';
+
         return new ChessPosition() {
             @Override
             public int x() {
-                return HorizontalChar - 'a';
+                return x;
             }
 
             @Override
             public int y() {
-                return VerticalChar - '1';
+                return y;
             }
 
             @Override
