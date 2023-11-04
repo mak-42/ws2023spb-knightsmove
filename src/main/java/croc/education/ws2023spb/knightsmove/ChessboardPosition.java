@@ -22,7 +22,7 @@ public class ChessboardPosition implements ChessPosition {
     }
     static Map<Integer, String> positionXToLetter = Collections.unmodifiableMap(mutablePositionXToLetter);
 
-    public ChessboardPosition(int columnX, int rowY) throws IllegalPositionException{
+    public ChessboardPosition(int columnX, int rowY) {
         if (columnX < MIN_POSITION || columnX > MAX_POSITION) {
             throw new IllegalPositionException("Позиция X должна находиться в диапазоне от " + MIN_POSITION + " до " + MAX_POSITION);
         }
