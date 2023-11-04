@@ -3,6 +3,8 @@ package croc.education.ws2023spb.knightsmove;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Класс, содержащий методы преобразования в объект расположения фигуры на шахматной доске из различных форматов.
@@ -51,11 +53,15 @@ public final class ChessPositionParser {
         }
 
         int x = chessColumns.get(position.charAt(0));
-        int y = Character.getNumericValue(position.charAt(1)) - 1;
 
-        if (y < 0 || y > 7 || !Character.isDigit(position.charAt(1))) {
+        Pattern pattern = Pattern.compile("[1-7]]");
+        Matcher matcher = pattern.matcher(position.substring(1, 1));
+
+        if (!matcher.matches()) {
             throw new IllegalPositionException("Unknown position : " + position);
         }
+
+        int y = Character.getNumericValue(position.charAt(1));
 
         return new ChessPositionImpl(x, y);
     }
