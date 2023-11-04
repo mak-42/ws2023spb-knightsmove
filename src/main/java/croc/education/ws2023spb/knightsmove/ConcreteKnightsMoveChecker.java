@@ -1,18 +1,16 @@
 package croc.education.ws2023spb.knightsmove;
 
-import java.util.ArrayList;
-
 public class ConcreteKnightsMoveChecker implements KnightsMoveChecker {
     @Override
-    public void check(String[] positions) throws IllegalMoveException, IllegalPositionException {
-        ArrayList<ChessPosition> parsedPositions = new ArrayList<>();
-        for (var position : positions) {
-            parsedPositions.add(ChessPositionParser.parse(position));
-        }
-        for (int i = 0; i < parsedPositions.size() - 1; i++) {
-            if (!checkMoveDistance(parsedPositions.get(i), parsedPositions.get(i+1))) {
-                throw new IllegalMoveException(parsedPositions.get(i), parsedPositions.get(i+1));
+    public void check(String[] positions) throws IllegalMoveException {
+        ChessPosition previousPosition = ChessPositionParser.parse(positions[0]);
+
+        for (int i = 1; i < positions.length; i++) {
+            ChessPosition currentPosition = ChessPositionParser.parse(positions[i]);
+            if (!checkMoveDistance(previousPosition, currentPosition)) {
+                throw new IllegalMoveException(previousPosition, currentPosition);
             }
+            previousPosition = currentPosition;
         }
     }
     private boolean checkMoveDistance(ChessPosition startPosition, ChessPosition finalPosition) {
