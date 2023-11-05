@@ -54,14 +54,14 @@ public final class ChessPositionParser {
 
         int x = chessColumns.get(position.charAt(0));
 
-        Pattern pattern = Pattern.compile("[1-7]");
+        Pattern pattern = Pattern.compile("[1-8]");
         Matcher matcher = pattern.matcher(position.substring(1, 2));
 
         if (!matcher.matches()) {
             throw new IllegalPositionException("Unknown position : " + position);
         }
 
-        int y = Character.getNumericValue(position.charAt(1));
+        int y = Character.getNumericValue(position.charAt(1)) - 1;
 
         return new ChessPositionImpl(x, y);
     }
