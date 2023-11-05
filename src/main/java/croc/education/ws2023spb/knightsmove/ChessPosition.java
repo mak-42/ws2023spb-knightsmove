@@ -7,6 +7,7 @@ package croc.education.ws2023spb.knightsmove;
  */
 public interface ChessPosition {
 
+
     /**
      * Возвращает позицию фигуры по горизонтали.
      * <p/>
