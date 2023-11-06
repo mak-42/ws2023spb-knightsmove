@@ -8,7 +8,7 @@ private int y;
             this.x = x;
             this.y = y;
         }else{
-            throw new IllegalPositionException("Неверно заданные координаты");
+            throw new IllegalPositionException(x,y);
         }
     }
     @Override
