@@ -3,15 +3,14 @@ package croc.education.ws2023spb.knightsmove;
 public class MyKnightsMoveChecker implements KnightsMoveChecker {
     @Override
     public void check(String[] positions) throws IllegalMoveException {
-        String from, to;
+        String fromPosition, toPosition;
         for (int i = 1; i < positions.length; i++) {
-            from = positions[i-1];
-            to= positions[i];
-            if (!isKnightMove(from, to)) {
-               throw new IllegalMoveException("конь так не ходит: " + from + " -> " + to.trim());
+            fromPosition = positions[i-1];
+            toPosition= positions[i];
+            if (!isKnightMove(fromPosition, toPosition)) {
+               throw new IllegalMoveException(fromPosition,toPosition);
             }
         }
-        System.out.print("OK");
     }
 
     public boolean isKnightMove(String from, String to) {
