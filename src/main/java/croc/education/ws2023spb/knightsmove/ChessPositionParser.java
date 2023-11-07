@@ -25,10 +25,10 @@ public final class ChessPositionParser {
      */
     public static ChessPosition parse(final String position) throws IllegalPositionException {
         if (position == null || position.length() != 2) {
-            throw new IllegalPositionException();
+            throw new IllegalPositionException("Не существует позиции: " + position);
         }
         int x = (position.charAt(0) - 'a');
-        int y = Character.getNumericValue(position.charAt(1)) - 1;
+        int y = (position.charAt(1) - '0') - 1;
         return new Position(x, y);
     }
 }

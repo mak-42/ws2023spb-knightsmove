@@ -1,8 +1,8 @@
 package croc.education.ws2023spb.knightsmove;
 
 public class Position implements ChessPosition {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
 
     @Override
@@ -22,25 +22,12 @@ public class Position implements ChessPosition {
 
     public Position(int x, int y) throws IllegalPositionException {
         if (x < 0 || y < 0 || x > 7 || y > 7) {
-            throw new IllegalPositionException();
+            throw new IllegalPositionException(x, y);
         }
         this.x = x;
         this.y = y;
     }
 
-    public void setX(int x) throws IllegalPositionException {
-        if (x < 0 || x > 7) {
-            throw new IllegalPositionException();
-        }
-        this.x = x;
-    }
-
-    public void setY(int y) throws IllegalPositionException {
-        if (y < 0 || y > 7) {
-            throw new IllegalPositionException();
-        }
-        this.y = y;
-    }
 
     @Override
     public String toString() {

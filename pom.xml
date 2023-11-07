@@ -1,12 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>croc.education.ws2023spb</groupId>
     <artifactId>knights-move</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <description>Приложение, проверяющее возможность прохождения последовательности клеток на шахматной доске ходом коня.</description>
+    <description>Приложение, проверяющее возможность прохождения последовательности клеток на шахматной доске ходом
+        коня.
+    </description>
     <properties>
         <java.version>17</java.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -73,10 +75,6 @@
             <artifactId>junit-jupiter-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>RELEASE</version>
@@ -93,6 +91,10 @@
             <artifactId>junit</artifactId>
             <version>RELEASE</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
         </dependency>
     </dependencies>
 </project>
