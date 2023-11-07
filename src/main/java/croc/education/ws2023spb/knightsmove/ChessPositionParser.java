@@ -23,7 +23,7 @@ public final class ChessPositionParser {
      * @param position наименование клетки шахматной доски, на которой находится фигура
      * @return объект расположения фигуры на шахматной доске, соответствующий переданному наименованию клетки
      */
-    public static ChessPosition parse(final String position)  {
+    public static ChessPosition parse(final String position) throws IllegalPositionException  {
         int x, y;
         // TODO: создать реализацию метода.
         char letter = position.charAt(0);
