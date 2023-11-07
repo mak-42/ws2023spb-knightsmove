@@ -5,12 +5,8 @@ import java.util.ArrayList;
 public class KnightMoveChecker implements KnightsMoveChecker {
     @Override
     public void check(String[] positions) throws IllegalMoveException {
-        ArrayList<ChessPosition> chessPositions = new ArrayList<ChessPosition>();
-        for (String position : positions) {
-            chessPositions.add(ChessPositionParser.parse(position));
-        }
-        for (int i = 0; i < chessPositions.size() - 1; i++) {
-            if (!checkMove(chessPositions.get(i), chessPositions.get(i + 1))) {
+        for (int i = 0; i < positions.length - 1; i++) {
+            if (!checkMove(ChessPositionParser.parse(positions[i]), ChessPositionParser.parse(positions[i + 1]))) {
                 throw new IllegalMoveException(String.format("конь так не ходит: %s -> %s", positions[i], positions[i + 1]));
             }
         }

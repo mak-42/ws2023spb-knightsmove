@@ -25,10 +25,12 @@ public final class ChessPositionParser {
      */
     public static ChessPosition parse(final String position) throws IllegalPositionException {
         if (position.length() != 2) {
-            throw new IllegalPositionException("Bad position");
+            throw new IllegalPositionException(position + " is not a valid value. Positions on a chessboard are " +
+                    "identified using a letter (a-h) for the column and a number (1-8) for the row, such as 'a6' " +
+                    "or 'd4'.");
         }
-        int column = position.toLowerCase().charAt(0) - 97;
-        int line = position.toLowerCase().charAt(1) - 49;
+        int column = position.toLowerCase().charAt(0) - 'a';
+        int line = position.toLowerCase().charAt(1) - '1';
         return new BoardChessPosition(column, line);
     }
 }

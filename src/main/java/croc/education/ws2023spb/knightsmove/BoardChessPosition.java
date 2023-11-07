@@ -1,24 +1,20 @@
 package croc.education.ws2023spb.knightsmove;
 
 public class BoardChessPosition implements ChessPosition {
-    private int xPosition;
-    private int yPosition;
+    final private int xPosition;
+    final private int yPosition;
 
     public BoardChessPosition(int xPosition, int yPosition) throws IllegalPositionException {
-        if (checkPositionValidity(xPosition)) {
-            this.xPosition = xPosition;
-        } else {
-            throw new IllegalPositionException("X position must be between a and h");
-        }
-        if (checkPositionValidity(yPosition)) {
-            this.yPosition = yPosition;
-        } else {
-            throw new IllegalPositionException("Y position must be between 1 and 8");
-        }
+        this.xPosition = checkPositionValidity(xPosition, "X position must be between a and h. ");
+        this.yPosition = checkPositionValidity(yPosition, "Y position must be between 1 and 8. ");
+        ;
     }
 
-    private boolean checkPositionValidity(int a) {
-        return a >= 0 && a <= 7;
+    private int checkPositionValidity(int a, String message) {
+        if (!(a >= 0 && a <= 7)) {
+            throw new IllegalPositionException(message + "Current position is " + a);
+        }
+        return a;
     }
 
     @Override
@@ -33,24 +29,13 @@ public class BoardChessPosition implements ChessPosition {
 
     @Override
     public String toString() {
-        char column = (char) (97 + xPosition);
+        char column = (char) ('a' + xPosition);
         return String.format("%s%s", column, yPosition + 1);
     }
 
-    public void setXPosition(int xPosition) throws IllegalPositionException {
-        if (checkPositionValidity(xPosition)) {
-            this.xPosition = xPosition;
-        } else {
-            throw new IllegalPositionException("X position must be between 0 and 7");
-        }
-    }
-
-
-    public void setYPosition(int yPosition) throws IllegalPositionException {
-        if (checkPositionValidity(yPosition)) {
-            this.yPosition = yPosition;
-        } else {
-            throw new IllegalPositionException("Y position must be between 0 and 7");
+    private void checkNotNull(Object obj, String message) {
+        if (obj == null) {
+            throw new NullPointerException(message);
         }
     }
 }
