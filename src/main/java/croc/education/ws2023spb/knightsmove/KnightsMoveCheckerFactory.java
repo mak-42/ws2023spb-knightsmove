@@ -23,7 +23,8 @@ public final class KnightsMoveCheckerFactory {
      */
     public static KnightsMoveChecker get() {
         return (String[] positions) -> {
-            if (CheckerPositionCount.check(positions)) {
+            try {
+                CheckerPositionCount.checkPositionCount(positions);
                 for (int i = 1; i < positions.length; i++) {
                     ChessPosition current = ChessPositionParser.parse(positions[i - 1]);
                     ChessPosition next = ChessPositionParser.parse(positions[i]);
@@ -34,7 +35,11 @@ public final class KnightsMoveCheckerFactory {
                         throw new IllegalMoveException(positions[i - 1], positions[i]);
                     }
                 }
+
+            } catch (PositionCountException e) {
+                System.out.println(e.getMessage());
             }
+
         };
     }
 }

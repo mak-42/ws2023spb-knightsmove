@@ -1,10 +1,8 @@
 package croc.education.ws2023spb.knightsmove;
 
 public class CheckerPositionCount {
-    public static boolean check (String[] str) {
-        if (str.length >= 2) {
-            return true;
-        } else {
+    public static void checkPositionCount(String[] str) throws PositionCountException {
+        if (str.length < 2) {
             throw new PositionCountException();
         }
     }
