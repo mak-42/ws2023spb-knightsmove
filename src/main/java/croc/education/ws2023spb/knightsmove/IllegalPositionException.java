@@ -1,8 +1,9 @@
 package croc.education.ws2023spb.knightsmove;
 
 public class IllegalPositionException extends RuntimeException {
+
     public IllegalPositionException(String message) {
-       super(message);
+        super(message);
     }
 
     public IllegalPositionException(int x, int y) {
@@ -10,12 +11,20 @@ public class IllegalPositionException extends RuntimeException {
 
     }
 
+
     public static class IllegalPositionExceptionBuilder extends RuntimeException {
         private String position;
-        private char letter,number;
+        private char letter, number;
+        private boolean isValidLength, isValidLetter, isValidNumber;
 
-        public IllegalPositionExceptionBuilder setPosition(String position){
-            this.position=position;
+        public IllegalPositionExceptionBuilder(boolean isValidLength, boolean isValidLetter, boolean isValidNumber) {
+            this.isValidLength = isValidLength;
+            this.isValidLetter = isValidLetter;
+            this.isValidNumber = isValidNumber;
+        }
+
+        public IllegalPositionExceptionBuilder setPosition(String position) {
+            this.position = position;
             return this;
         }
 
@@ -23,23 +32,26 @@ public class IllegalPositionException extends RuntimeException {
             this.letter = letter;
             return this;
         }
+
         public IllegalPositionExceptionBuilder setNumber(char number) {
             this.number = number;
             return this;
         }
-        public IllegalPositionException build(){
-            String errorMessage="Неверно определена: "+position+" - введите  ";
-            if(position.length() != 2){
-                errorMessage+="позицию двумя литерами";
+
+        public IllegalPositionException build() {
+            String errorMessage = "Неверно определена: " + position + " - введите  ";
+            if (isValidLength) {
+                errorMessage += "позицию двумя литерами";
                 return new IllegalPositionException(errorMessage);
             }
-            if (letter < 'a' || letter > 'h'){
-                errorMessage+= "вместо \""+letter+ "\" латинскую букву от a до h; ";
+            if (isValidLetter) {
+                errorMessage += "вместо \"" + letter + "\" латинскую букву от a до h; ";
             }
-            if (number - '0'  < 1 || number - '0' > 8){
-                errorMessage+= "вместо \""+number+"\" цифру от 1 до 8.";
+            if (isValidNumber) {
+                errorMessage += "вместо \"" + number + "\" цифру от 1 до 8.";
             }
             return new IllegalPositionException(errorMessage);
         }
+
     }
 }

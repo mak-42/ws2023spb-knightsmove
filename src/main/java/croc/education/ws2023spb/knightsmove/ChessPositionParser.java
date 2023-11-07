@@ -23,13 +23,17 @@ public final class ChessPositionParser {
      * @param position наименование клетки шахматной доски, на которой находится фигура
      * @return объект расположения фигуры на шахматной доске, соответствующий переданному наименованию клетки
      */
-    public static ChessPosition parse(final String position) throws IllegalPositionException  {
+    public static ChessPosition parse(final String position) throws IllegalPositionException {
         int x, y;
         // TODO: создать реализацию метода.
         char letter = position.charAt(0);
         char number = position.charAt(1);
-        if ((position.length() != 2) || (letter < 'a' || letter > 'h')||(number - '0'  < 1 || number - '0' > 8)) {
-            throw new IllegalPositionException.IllegalPositionExceptionBuilder()
+        boolean isValidLength = position.length() != 2;
+        boolean isValidLetter = letter < 'a' || letter > 'h';
+        boolean isValidNumber = number - '0' < 1 || number - '0' > 8;
+
+        if (isValidLength || isValidLetter || isValidNumber) {
+            throw new IllegalPositionException.IllegalPositionExceptionBuilder(isValidLength, isValidLetter, isValidNumber)
                     .setPosition(position)
                     .setLetter(letter)
                     .setNumber(number)
@@ -40,5 +44,7 @@ public final class ChessPositionParser {
         return new MyChessPosition(x, y);
     }
 }
+
+
 
 
