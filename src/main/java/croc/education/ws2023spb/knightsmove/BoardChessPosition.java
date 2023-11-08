@@ -32,10 +32,4 @@ public class BoardChessPosition implements ChessPosition {
         char column = (char) ('a' + xPosition);
         return String.format("%s%s", column, yPosition + 1);
     }
-
-    private void checkNotNull(Object obj, String message) {
-        if (obj == null) {
-            throw new NullPointerException(message);
-        }
-    }
 }
