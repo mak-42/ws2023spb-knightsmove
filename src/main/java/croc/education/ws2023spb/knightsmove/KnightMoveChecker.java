@@ -1,7 +1,5 @@
 package croc.education.ws2023spb.knightsmove;
 
-import java.util.ArrayList;
-
 public class KnightMoveChecker implements KnightsMoveChecker {
     @Override
     public void check(String[] positions) throws IllegalMoveException {
