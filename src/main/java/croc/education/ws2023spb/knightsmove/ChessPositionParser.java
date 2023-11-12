@@ -11,18 +11,16 @@ import java.util.Map;
  * @see ChessPosition
  */
 public final class ChessPositionParser {
-    private static final Map<Character, Integer> mutableLetterToPositionX = new HashMap<>();
-    static {
-        mutableLetterToPositionX.put('a', 0);
-        mutableLetterToPositionX.put('b', 1);
-        mutableLetterToPositionX.put('c', 2);
-        mutableLetterToPositionX.put('d', 3);
-        mutableLetterToPositionX.put('e', 4);
-        mutableLetterToPositionX.put('f', 5);
-        mutableLetterToPositionX.put('g', 6);
-        mutableLetterToPositionX.put('h', 7);
-    }
-    static Map<Character, Integer> letterToPositionX = Collections.unmodifiableMap(mutableLetterToPositionX);
+    private static final Map<Character, Integer> letterToPositionX = Map.of(
+            'a',0,
+            'b',1,
+            'c',2,
+            'd',3,
+            'e', 4,
+            'f', 5,
+            'g', 6,
+            'h', 7
+    );
     /**
      * Конструктор.
      */
@@ -40,8 +38,17 @@ public final class ChessPositionParser {
      * @return объект расположения фигуры на шахматной доске, соответствующий переданному наименованию клетки
      */
     public static ChessPosition parse(final String position) {
-        if ((position == null) || !position.matches("[a-h][1-8]")) {
+        if ((position == null)) {
             throw new IllegalPositionException("Наименование клетки должно состоять из двух символов: <колонка от 'a' до 'h'><строка от 1 до 8>");
+        }
+        if (!position.matches("[a-h][1-8]")) {
+            if (position.matches("(.*)[1-8]")) {
+                throw new IllegalPositionException(String.format("Наименование клетки %s введено неверно. Колонка %c должна быть 'a' до 'h'",position, position.charAt(0)));
+            }
+            else if (position.matches("[a-h](.*)")) {
+                throw new IllegalPositionException(String.format("Наименование клетки %s введено неверно. Строка %c должна быть 1 до 8",position, position.charAt(1)));
+            }
+            throw new IllegalPositionException(String.format("Наименование клетки %s введено неверно. Колонка %c должна быть 'a' до 'h', Строка %c должна быть 1 до 8", position, position.charAt(0), position.charAt(1)));
         }
 
         char charX = position.charAt(0);
