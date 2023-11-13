@@ -11,7 +11,6 @@ public final class Application {
      * @param args аргументы
      */
     public static void main(final String[] args) {
-        // TODO: реализовать логику исполнения программы.
         if (args.length < 2) {
             System.out.println("Введите больше >=2 аргументов");
             return;
