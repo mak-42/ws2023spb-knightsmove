@@ -39,10 +39,10 @@ public final class KnightsMoveCheckerFactory {
                         if (Math.abs(dx) + Math.abs(dy) != 3 || dx * dy == 0) {
                             throw new IllegalMoveException(
                                     "конь так не ходит: " + pos + " -> " + nextPos);
+                                    
                         }
                         pos = nextPos;
                     }
-                    System.out.print("OK");
                 } catch (IllegalPositionException e) {
                     throw new IllegalMoveException(
                             "некорректная позиция: " + e.getMessage());
