@@ -25,15 +25,23 @@ public final class ChessPositionParser {
      */
     public static ChessPosition parse(final String position) throws IllegalPositionException {
         int x, y;
-        // TODO: создать реализацию метода.
+        if(position.isBlank()){
+            throw new IllegalPositionException("Введите не пустую позицию двумя литерами: 1-ый от a до h, 2-ый от 1 до 8.");
+        }
+        boolean isValidLength = position.length() != 2;
+        if (isValidLength) {
+            throw new IllegalPositionException.IllegalPositionExceptionBuilder(isValidLength)
+                    .setPosition(position)
+                    .build();
+        }
+
         char letter = position.charAt(0);
         char number = position.charAt(1);
-        boolean isValidLength = position.length() != 2;
         boolean isValidLetter = letter < 'a' || letter > 'h';
         boolean isValidNumber = number - '0' < 1 || number - '0' > 8;
 
-        if (isValidLength || isValidLetter || isValidNumber) {
-            throw new IllegalPositionException.IllegalPositionExceptionBuilder(isValidLength, isValidLetter, isValidNumber)
+        if (isValidLetter || isValidNumber) {
+            throw new IllegalPositionException.IllegalPositionExceptionBuilder(isValidLetter, isValidNumber)
                     .setPosition(position)
                     .setLetter(letter)
                     .setNumber(number)
