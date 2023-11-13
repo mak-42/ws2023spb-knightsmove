@@ -23,21 +23,17 @@ public final class KnightsMoveCheckerFactory {
      */
     public static KnightsMoveChecker get() {
         return (String[] positions) -> {
-            try {
-                CheckerPositionCount.checkPositionCount(positions);
-                for (int i = 1; i < positions.length; i++) {
-                    ChessPosition current = ChessPositionParser.parse(positions[i - 1]);
-                    ChessPosition next = ChessPositionParser.parse(positions[i]);
-                    int dx = Math.abs(current.x() - next.x());
-                    int dy = Math.abs(current.y() - next.y());
 
-                    if (!((dx == 1 && dy == 2) || (dx == 2 && dy == 1))) {
-                        throw new IllegalMoveException(positions[i - 1], positions[i]);
-                    }
+            CheckerPositionCount.checkPositionCount(positions);
+            for (int i = 1; i < positions.length; i++) {
+                ChessPosition current = ChessPositionParser.parse(positions[i - 1]);
+                ChessPosition next = ChessPositionParser.parse(positions[i]);
+                int dx = Math.abs(current.x() - next.x());
+                int dy = Math.abs(current.y() - next.y());
+
+                if (!((dx == 1 && dy == 2) || (dx == 2 && dy == 1))) {
+                    throw new IllegalMoveException(positions[i - 1], positions[i]);
                 }
-
-            } catch (PositionCountException e) {
-                System.out.println(e.getMessage());
             }
 
         };

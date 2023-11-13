@@ -15,8 +15,10 @@ public final class Application {
             KnightsMoveChecker checker = KnightsMoveCheckerFactory.get();
             checker.check(args);
             System.out.print("OK");
-        } catch (IllegalMoveException e) {
+        } catch (IllegalMoveException e ) {
             System.out.print(e.getMessage());
+        } catch (PositionCountException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
