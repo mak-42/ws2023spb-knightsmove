@@ -1,7 +1,8 @@
 package croc.education.ws2023spb.knightsmove;
 
 /**
- * Приложение, проверяющее возможность прохождения последовательности клеток на шахматной доске ходом коня.
+ * Приложение, проверяющее возможность прохождения последовательности клеток на
+ * шахматной доске ходом коня.
  */
 public final class Application {
 
@@ -9,10 +10,15 @@ public final class Application {
      * Основной метод приложения.
      *
      * @param args
-     *            аргументы
+     *             аргументы
+     * @throws IllegalMoveException
      */
     public static void main(final String[] args) {
-        // TODO: реализовать логику исполнения программы.
-        System.out.print("Логика программы ещё не реализована");
+        try {
+            KnightsMoveCheckerFactory.get().check(args);
+            System.out.println("OK");
+        } catch (IllegalMoveException e) {
+            System.out.print(e.getMessage());
+        }
     }
 }
