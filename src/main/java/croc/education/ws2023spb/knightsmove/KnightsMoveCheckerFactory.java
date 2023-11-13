@@ -22,7 +22,6 @@ public final class KnightsMoveCheckerFactory {
      * @return обработчик, проверяющий, что последовательность клеток на шахматной доске может быть пройдена ходом коня
      */
     public static KnightsMoveChecker get() {
-        // TODO: создать реализацию метода.
-        throw new UnsupportedOperationException("Вызван ещё не реализованный метод.");
+           return new MyKnightsMoveChecker();
     }
 }

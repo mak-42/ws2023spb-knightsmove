@@ -8,11 +8,19 @@ public final class Application {
     /**
      * Основной метод приложения.
      *
-     * @param args
-     *            аргументы
+     * @param args аргументы
      */
     public static void main(final String[] args) {
-        // TODO: реализовать логику исполнения программы.
-        System.out.print("Логика программы ещё не реализована");
+        if (args.length < 2) {
+            System.out.println("Введите больше >=2 аргументов");
+            return;
+        }
+        KnightsMoveChecker checker = KnightsMoveCheckerFactory.get();
+        try {
+            checker.check(args);
+            System.out.print("OK");
+        } catch (IllegalMoveException knightIllegalMove) {
+            System.out.print(knightIllegalMove.getMessage());
+        }
     }
 }
