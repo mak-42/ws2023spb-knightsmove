@@ -28,17 +28,15 @@ public final class KnightsMoveCheckerFactory {
             @Override
             public void check(String[] positions) throws IllegalMoveException {
                 boolean check = true;
-                Position[] parsedPositions = Arrays.stream(positions)
-                        .map(ChessPositionParser::parse)
-                        .toArray(Position[]::new);
-                for (int i = 0; i < positions.length - 1; i++) {
-                    var p1 = parsedPositions[i];
-                    var p2 = parsedPositions[i + 1];
+                Position p1 = (Position) ChessPositionParser.parse(positions[0]);
+                for (int i = 1; i < positions.length; i++) {
+                    var p2 = (Position) ChessPositionParser.parse(positions[i]);
                     check = (((Math.abs(p1.x() - p2.x()) == 2) && (Math.abs(p1.y() - p2.y()) == 1))
                             || ((Math.abs(p1.x() - p2.x()) == 1) && (Math.abs(p1.y() - p2.y()) == 2)));
                     if (!check) {
                         throw new IllegalMoveException(p1, p2);
                     }
+                    p1 = p2;
                 }
             }
         };
