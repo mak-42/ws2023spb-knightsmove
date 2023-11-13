@@ -17,10 +17,12 @@ public class IllegalPositionException extends RuntimeException {
         private char letter, number;
         private boolean isValidLength, isValidLetter, isValidNumber;
 
-        public IllegalPositionExceptionBuilder(boolean isValidLength, boolean isValidLetter, boolean isValidNumber) {
-            this.isValidLength = isValidLength;
+        public IllegalPositionExceptionBuilder( boolean isValidLetter, boolean isValidNumber) {
             this.isValidLetter = isValidLetter;
             this.isValidNumber = isValidNumber;
+        }
+        public IllegalPositionExceptionBuilder(boolean isValidLength) {
+            this.isValidLength = isValidLength;
         }
 
         public IllegalPositionExceptionBuilder setPosition(String position) {
